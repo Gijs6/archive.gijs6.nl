@@ -1,0 +1,143 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="author" content="gijs6" />
+        <meta name="description" content="A big mess of fun pages, interesting projects, my own thoughts and opinions and more." />
+        <meta name="robots" content="index, follow" />
+        <title>Modular Flask - Gijs6</title>
+        <link rel="stylesheet" href="/versions/v1/static/styles/skeleton.css" />
+        <link rel="stylesheet" href="/versions/v1/static/styles/colors.css" />
+        <link rel="icon" type="image/x-icon" href="/versions/v1/static/favs/new_fav.ico" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap" rel="stylesheet" />
+        <link rel="preconnect" href="https://kit.fontawesome.com" />
+        <link rel="alternate" type="application/rss+xml" title="Blog - RSS" href="/versions/v1/blog/rss.xml" />
+        <link rel="alternate" type="application/atom+xml" title="Blog - Atom" href="/versions/v1/blog/atom.xml" />
+        <script src="https://kit.fontawesome.com/4a94c21782.js" crossorigin="anonymous"></script>
+
+        <link rel="stylesheet" href="/versions/v1/blog/blog_static/blogpost.css" />
+    </head>
+    <body>
+        <header>
+            <span id="logo">Gijs<sup>6</sup></span>
+            <a href="/versions/v1/" class="menu-item">/home</a>
+            <a href="/versions/v1/blog" class="menu-item active">/blog</a>
+            <a href="/versions/v1/projects" class="menu-item">/projects</a>
+            <a href="/versions/v1/lib" class="menu-item">/library</a>
+            <a href="/versions/v1/colophon" class="menu-item">/colophon</a>
+            <a href="/versions/v1/school" class="menu-item">/school</a>
+            <a href="/versions/v1/contact" class="menu-item">/contact</a>
+        </header>
+        <main>
+            <a id="back-to-blog" href="/versions/v1/blog/archived"><i class="fa-solid fa-arrow-left"></i> Back to archived posts</a>
+
+            <div id="post-info">
+                <p>
+                    Made on <a href="https://github.com/Gijs6/gijs6.nl/commit/aea2202f404e1d6a3684bf4e298cb2edb4ab05e1"><time datetime="2025-04-30T07:02:33+00:00">30-04-2025 at 07:02:33</time></a> (UTC)
+                </p>
+
+                <p>
+                    Last edited on <a href="https://github.com/Gijs6/gijs6.nl/commit/a7ee69bf0a96741716519d6154184d8313f7daff"><time datetime="2025-08-27T13:04:15+00:00">27-08-2025 at 13:04:15</time></a> (UTC)
+                </p>
+            </div>
+            <article>
+                <h1>Building a Modular Website with Flask</h1>
+                <p>This site and this blog you're reading is built using the <em>amazing</em> Python framework <strong>Flask</strong>. And yeah, I do mean amazing. It's simple, lightweight, flexible, and lets you get going superfast. But despite all that, for a long time, my site was... well, kind of a mess.</p>
+                <p>See, I was managing a bunch of different projects on the same domain. Some blog stuff here, some API endpoints there and some random private school dashboard pages. It worked, technically. But maintaining it? <em>Absolute pain.</em></p>
+                <p>I knew I needed something modular. Something that didn't involve scrolling through 1400 lines of spaghetti in one single Python file. And thankfully, Flask already had the perfect solution: <strong>blueprints</strong>.</p>
+                <h2>Before Blueprints</h2>
+                <p>My old <code>main.py</code> was a single 1400-line mess. A mix of routes, logic, utilities and way too many print statements. There was <em>no</em> structure. Every new route was just tacked on wherever I happened to have the cursor.</p>
+                <h2>Enter: Flask Blueprints</h2>
+                <p>Blueprints are basically Flask's way of saying: &quot;Hey, maybe split this up a bit?&quot; They let you group routes and logic into objects that work really similar to the <code>app</code>-object. Think of them as little mini <code>app</code>-objects that plug into your main app.</p>
+                <p>All the endpoints in a blueprint are registered with the blueprint itself, and then that blueprint gets registered <em>with your main app</em>.</p>
+                <p>Here's the most basic example:</p>
+                <p><code>blueprints/simple.py</code></p>
+                <pre><code class="language-python">from flask import Blueprint
+
+simple_bp = Blueprint(&quot;simple_bp&quot;, __name__, template_folder=&quot;templates&quot;)
+
+@simple_bp.route(&quot;/hello&quot;)
+def index():
+    return &quot;Hello world!&quot;
+</code></pre>
+                <p>Then over in <code>app.py</code>, you just plug it in:</p>
+                <pre><code class="language-python">from flask import Flask
+from blueprints.simple import simple_bp
+
+app = Flask(__name__)
+app.register_blueprint(simple_bp, url_prefix=&quot;/simple&quot;)
+</code></pre>
+                <p>And then your page is available under <code>/simple/hello</code>!</p>
+                <p>And the blueprint object can do almost everything that the app object can do, so you can register error handlers, context processors, before and after request functions, and you can even register blueprints inside blueprints.</p>
+                <h2>Making It Scalable</h2>
+                <p>Manually importing each blueprint works fine when you only have a couple. But once you start scaling things up, this gets tedious quite fast.</p>
+                <p>So I wrote a tiny bit of automation to handle this. It walks through all subfolders in the <code>blueprints/</code> folder, looks for a <code>routes.py</code> file, and tries to import a <code>*_bp</code> object from it.</p>
+                <p>Here's what that looks like:</p>
+                <p><code>blueprints/__init__.py</code></p>
+                <pre><code class="language-python">import os
+import importlib
+
+def load_blueprints():
+    blueprints = []
+    base_path = os.path.dirname(__file__)
+
+    for file_item in os.scandir(base_path):
+        if file_item.is_dir():
+            routes_path = os.path.join(file_item.path, &quot;routes.py&quot;)
+            if os.path.isfile(routes_path):
+                module_path = f&quot;blueprints.{file_item.name}.routes&quot;
+                try:
+                    module = importlib.import_module(module_path)
+
+                    for attr in dir(module):
+                        if attr.endswith(&quot;_bp&quot;):
+                            bp = getattr(module, attr)
+                            blueprints.append((bp, f&quot;/{file_item.name}&quot;))
+                except Exception as e:
+                    print(f&quot;An error occurred while trying to load {module_path}: {e}&quot;)
+
+    return blueprints
+</code></pre>
+                <p>And then your <code>app.py</code> gets way cleaner:</p>
+                <pre><code class="language-python">from flask import Flask
+from blueprints import load_blueprints
+
+app = Flask(__name__)
+
+# Register all blueprints automatically
+for bp, prefix in load_blueprints():
+    try:
+        app.register_blueprint(bp, url_prefix=prefix)
+    except Exception as e:
+        print(f&quot;An error occurred while trying to load {bp} as a blueprint: {e}&quot;)
+</code></pre>
+                <p>And the URL prefixes are just based on the folder names, so you don't have to declare names everywhere.</p>
+                <h2>Final thoughts</h2>
+                <p>If you're using Flask for anything complex, just use blueprints. Don't wait until you have a huge single Python file that somehow became your entire backend.</p>
+                <p>Modularizing your Flask project doesn't just make the code cleaner, it makes it more enjoyable to work on. Which, if you've ever had to debug an endpoint in a 1.4k-line Python file, you know is kind of a big deal.</p>
+            </article>
+        </main>
+        <footer>
+            <p id="madeby">Made by Gijs</p>
+
+            <div id="extra-footer">
+                <p>
+                    <a href="/versions/v1/blog/rss.xml"><i class="fa-solid fa-square-rss"></i><span>RSS feed</span></a>
+                </p>
+                <p>
+                    <a href="/versions/v1/blog/atom.xml"><i class="fa-solid fa-square-rss"></i><span>Atom feed</span></a>
+                </p>
+                <p>Reply by <a href="mailto:gijs6@dupunkto.org">email</a></p>
+            </div>
+
+            <p>Version from commit <a href="https://github.com/Gijs6/gijs6.nl/commit/58dddb3536de8f63d4ca0278ba11f83729c1c025">58dddb3</a> (committed on <time datetime="2025-11-03T16:57:08+00:00">03-11-2025 at 16:57:08</time> UTC)</p>
+            <p>Last deployed on <time datetime="2025-11-08T19:02:00.917256+00:00">08-11-2025 at 19:02:00</time> UTC</p>
+            <p>Content and code are <strong>public domain</strong></p>
+            <p>Made with <a href="https://github.com/pallets/flask" target="_blank">Flask</a> and <a href="https://github.com/pallets/jinja" target="_blank">Jinja</a>, hosted at <a href="https://eu.pythonanywhere.com/" target="_blank">PythonAnywhere</a></p>
+            <p>View the <a href="https://github.com/Gijs6/gijs6.nl" target="_blank">source code on GitHub</a></p>
+        </footer>
+    </body>
+</html>
