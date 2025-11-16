@@ -1,0 +1,25 @@
+:root {
+    color-scheme: light dark;
+}
+
+body {
+    font-family: "Inter", "Ubuntu", "Roboto", "Helvetica", "Noto", sans-serif;
+    padding: 40px;
+    max-width: 800px;
+}
+
+body > header {
+    font-size: 2em;
+    font-weight: 900;
+}
+
+body > footer {
+    margin-top: 40px;
+    border-top: 1px solid gray;
+}
+
+code,
+pre,
+samp {
+    font-family: "Source Code Pro", "Menlo", "Consolas", "Monaco", "Liberation Mono", "Lucida Console", monospace;
+}

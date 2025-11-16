@@ -1,0 +1,15 @@
+#!/bin/bash
+
+format() {
+  npx prettier --write "site/**/*.{css,js,html,xml}"
+}
+
+serve() {
+  cd site
+  python -m http.server 8005
+}
+
+deploy() {
+  format
+  lift deploy
+}
