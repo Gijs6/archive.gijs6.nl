@@ -1,0 +1,15 @@
+body > main > pre {
+    float: right;
+    width: fit-content;
+    margin: -30px 0 15px 15px;
+    font-size: 0.75em;
+    line-height: 1;
+}
+@media (width<=750px) {
+    body > main > pre {
+        float: none;
+        width: unset;
+        margin: 0;
+        overflow-x: scroll;
+    }
+}

@@ -1,0 +1,11 @@
+body > main > div {
+    grid-template-rows: masonry;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0 20px;
+    display: grid;
+}
+@media (width<=750px) {
+    body > main > div {
+        grid-template-columns: 1fr;
+    }
+}

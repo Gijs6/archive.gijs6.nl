@@ -1,0 +1,126 @@
+:root {
+    --lightningcss-light: initial;
+    --lightningcss-dark: ;
+    color-scheme: light dark;
+    --color-primary: var(--oc-green-8);
+    --color-accent: var(--oc-orange-8);
+}
+@media (prefers-color-scheme: dark) {
+    :root {
+        --lightningcss-light: ;
+        --lightningcss-dark: initial;
+    }
+}
+@media print {
+    :root {
+        --lightningcss-light: initial;
+        --lightningcss-dark: ;
+        color-scheme: light;
+    }
+}
+body {
+    grid-template: "sidebar main" 1fr "footer footer" / auto 1fr;
+    gap: 25px 40px;
+    width: fit-content;
+    padding: 35px 30px 20px;
+    font-family: Inter, Ubuntu, Roboto, Helvetica, Noto, sans-serif;
+    line-height: 1.4;
+    display: grid;
+}
+@media (width<=750px) {
+    body {
+        grid-template: "sidebar" "main" 1fr "footer"/1fr;
+    }
+}
+body > header {
+    flex-direction: column;
+    grid-area: sidebar;
+    gap: 1em;
+    display: flex;
+}
+@media (width<=750px) {
+    body > header {
+        flex-flow: wrap;
+    }
+}
+body > header > span {
+    font-size: 2em;
+    font-weight: 900;
+}
+body > header > span > sup {
+    color: var(--color-primary);
+    transition:
+        color 0.3s,
+        text-shadow 0.3s;
+}
+body > header > span:hover > sup {
+    color: var(--color-accent);
+    text-shadow:
+        3px 3px 25px var(--color-accent),
+        -3px -3px 25px var(--color-accent);
+}
+body > header > nav {
+    flex-direction: column;
+    gap: 0.5em;
+    display: flex;
+}
+@media (width<=750px) {
+    body > header > nav {
+        flex-flow: wrap;
+        align-content: center;
+    }
+}
+body > header > nav > a {
+    --item-color: var(--color-primary);
+    width: fit-content;
+}
+body > header > nav > a.active {
+    --item-color: var(--color-accent);
+}
+body > main {
+    grid-area: main;
+    max-width: 800px;
+    margin-top: 5px;
+    overflow: hidden;
+}
+body > main h1:first-child {
+    margin-block-start: 0;
+}
+body > footer {
+    grid-area: footer;
+}
+body > footer > p {
+    margin-block: 0.5em;
+}
+body > footer > p > time {
+    font-weight: 700;
+}
+a {
+    --item-color: var(--color-accent);
+    color: currentColor;
+    -webkit-text-decoration: underline solid var(--item-color);
+    text-decoration: underline solid var(--item-color);
+    -webkit-box-decoration-break: clone;
+    box-decoration-break: clone;
+    text-decoration-thickness: 2px;
+}
+a:hover {
+    background: var(--item-color);
+    box-shadow:
+        -1px 0px 0px 3px var(--item-color),
+        1px 0px 0px 3px var(--item-color);
+    color: #fff;
+    text-decoration: none;
+}
+code,
+pre,
+samp {
+    font-family:
+        Source Code Pro,
+        Menlo,
+        Consolas,
+        Monaco,
+        Liberation Mono,
+        Lucida Console,
+        monospace;
+}
