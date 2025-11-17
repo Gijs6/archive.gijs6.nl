@@ -5,8 +5,7 @@ format() {
 }
 
 serve() {
-  cd site
-  python -m http.server 8005
+  server --dir site --port 8005
 }
 
 deploy() {

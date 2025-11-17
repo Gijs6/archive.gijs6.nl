@@ -8,10 +8,6 @@ body {
     line-height: 1.4;
     max-width: 800px;
 }
-body > header {
-    font-weight: 900;
-    font-size: 2em;
-}
 
 body > footer {
     margin-top: 40px;
