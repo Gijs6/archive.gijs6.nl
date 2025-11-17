@@ -3,7 +3,7 @@
 }
 
 body {
-    font-family: "Inter", "Ubuntu", "Roboto", "Helvetica", "Noto", sans-serif;
+    font-family: "Noto Serif", "Merriweather", "Lora", serif;
     padding: 35px 30px 20px 30px;
     line-height: 1.4;
     max-width: 800px;
@@ -24,11 +24,11 @@ body > footer > p {
 }
 
 a {
-    --item-color: var(--oc-orange-8);
+    --item-color: var(--oc-blue-8);
 
     color: currentColor;
     text-decoration: underline solid var(--item-color);
-    text-decoration-thickness: 2px;
+    text-decoration-thickness: 1px;
     box-decoration-break: clone;
 }
 
