@@ -4,18 +4,41 @@
 
 body {
     font-family: "Inter", "Ubuntu", "Roboto", "Helvetica", "Noto", sans-serif;
-    padding: 40px;
+    padding: 35px 30px 20px 30px;
+    line-height: 1.4;
     max-width: 800px;
 }
-
 body > header {
-    font-size: 2em;
     font-weight: 900;
+    font-size: 2em;
 }
 
 body > footer {
     margin-top: 40px;
-    border-top: 1px solid gray;
+    border-top: 1px solid var(--oc-gray-6);
+    padding-top: 5px;
+}
+
+body > footer > p {
+    margin-block: 0.5em;
+}
+
+a {
+    --item-color: var(--oc-orange-8);
+
+    color: currentColor;
+    text-decoration: underline solid var(--item-color);
+    text-decoration-thickness: 2px;
+    box-decoration-break: clone;
+}
+
+a:hover {
+    background: var(--item-color);
+    box-shadow:
+        -1px 0px 0px 3px var(--item-color),
+        1px 0px 0px 3px var(--item-color);
+    text-decoration: none;
+    color: white;
 }
 
 code,
