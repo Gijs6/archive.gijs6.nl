@@ -6,11 +6,38 @@ body {
     font-family: "Noto Serif", "Merriweather", "Lora", serif;
     padding: 35px 30px 20px 30px;
     line-height: 1.4;
-    max-width: 800px;
+    max-width: 1200px;
+    margin: auto;
 }
 
 body > main > h1 {
-    margin-block-start: 0;
+    margin-block: 0 0.5em;
+    font-family: "Courier Prime", Courier, monospace;
+    font-size: 3em;
+}
+
+body > main > article {
+    display: grid;
+    grid-template-areas:
+        "title image"
+        "text image";
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto 1fr;
+    gap: 0 20px;
+    margin-block: 1.5em;
+}
+
+body > main > article > h2 {
+    grid-area: title;
+    margin-block: 0 0.25em;
+}
+
+body > main > article > div {
+    grid-area: text;
+}
+
+body > main > article > img {
+    grid-area: image;
 }
 
 body > footer {
