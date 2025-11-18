@@ -1,2 +1,11 @@
 scrape.py
 fix_paths.py
+
+node_modules
+screenshot.js
+package.json
+package-lock.json
+
+.gitignore
+
+downloaded-site
