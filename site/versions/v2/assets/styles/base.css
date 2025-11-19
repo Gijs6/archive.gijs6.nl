@@ -35,7 +35,7 @@ body {
 body > header {
     flex-direction: column;
     grid-area: sidebar;
-    gap: 1em;
+    gap: 20px;
     display: flex;
 }
 @media (width<=750px) {
@@ -43,17 +43,23 @@ body > header {
         flex-flow: wrap;
     }
 }
-body > header > span {
+body > header > a {
     font-size: 2em;
     font-weight: 900;
+    text-decoration: none;
 }
-body > header > span > sup {
+body > header > a:hover {
+    box-shadow: none;
+    background-color: unset;
+    color: currentColor;
+}
+body > header > a > sup {
     color: var(--color-primary);
     transition:
         color 0.3s,
         text-shadow 0.3s;
 }
-body > header > span:hover > sup {
+body > header > a:hover > sup {
     color: var(--color-accent);
     text-shadow:
         3px 3px 25px var(--color-accent),
@@ -87,13 +93,18 @@ body > main h1:first-child {
     margin-block-start: 0;
 }
 body > footer {
-    border-top: 1px solid var(--oc-gray-6);
+    border-top: 1px solid var(--lightningcss-light, var(--oc-gray-5)) var(--lightningcss-dark, var(--oc-gray-7));
     grid-area: footer;
     margin-top: 40px;
-    padding-top: 5px;
+    padding-top: 10px;
+    font-size: 0.9em;
 }
 body > footer > p {
+    color: var(--lightningcss-light, var(--oc-gray-6)) var(--lightningcss-dark, var(--oc-gray-5));
     margin-block: 0.5em;
+}
+body > footer > p a {
+    text-decoration-thickness: 1px;
 }
 body > footer > p > time {
     font-weight: 700;
