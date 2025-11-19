@@ -1,7 +1,7 @@
 #!/bin/bash
 
 format() {
-  npx prettier --write "site/**/*.{css,js,html,xml}"
+  prettier --write "site/**/*.{css,js,html,xml}"
 }
 
 serve() {
