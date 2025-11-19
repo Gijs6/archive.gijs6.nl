@@ -8,40 +8,53 @@ body {
     line-height: 1.4;
     max-width: 1200px;
     margin: auto;
+    display: flex;
+    flex-direction: column;
+}
+
+body > main {
+    flex-grow: 1;
 }
 
 body > main > h1 {
-    margin-block: 0 0.5em;
-    font-family: "Courier Prime", Courier, monospace;
+    margin-block: 0 0.25em;
     font-size: 3em;
 }
 
-body > main > article {
+body > main > section {
     display: grid;
-    grid-template-areas:
-        "title image"
-        "text image";
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: auto 1fr;
-    gap: 0 20px;
-    margin-block: 1.5em;
+    grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+    gap: 40px;
+    margin-block: 2em;
 }
 
-body > main > article > h2 {
-    grid-area: title;
-    margin-block: 0 0.25em;
+body > main > section > article {
+    display: flex;
+    flex-direction: column;
 }
 
-body > main > article > div {
-    grid-area: text;
+body > main > section > article > a:has(img):hover {
+    box-shadow: none;
 }
 
-body > main > article > img {
-    grid-area: image;
+body > main > section > article > a > img {
+    width: 100%;
+    height: auto;
+}
+
+body > main > section > article > h2 {
+    margin: 0;
+    font-size: 1.3em;
+}
+
+body > main > section > article > p {
+    margin-block: 0.25em 0.5em;
+    font-size: 0.9em;
+    color: var(--oc-gray-6);
 }
 
 body > footer {
-    margin-top: 40px;
+    margin-top: 50px;
     border-top: 1px solid var(--oc-gray-6);
     padding-top: 5px;
 }
@@ -66,10 +79,4 @@ a:hover {
         1px 0px 0px 3px var(--item-color);
     text-decoration: none;
     color: white;
-}
-
-code,
-pre,
-samp {
-    font-family: "Source Code Pro", "Menlo", "Consolas", "Monaco", "Liberation Mono", "Lucida Console", monospace;
 }
