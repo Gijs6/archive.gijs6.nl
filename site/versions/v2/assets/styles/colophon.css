@@ -1,15 +1,22 @@
-body > main > pre {
+body > main > div {
+    min-width: 0;
+}
+body > main > div > pre {
     float: right;
+    width: -webkit-fit-content;
+    width: -moz-fit-content;
     width: fit-content;
+    min-width: 0;
+    max-width: 100%;
     margin: -30px 0 15px 15px;
     font-size: 0.75em;
     line-height: 1;
+    overflow-x: auto;
 }
-@media (width<=750px) {
-    body > main > pre {
+@media (max-width: 750px) {
+    body > main > div > pre {
         float: none;
         width: unset;
         margin: 0;
-        overflow-x: scroll;
     }
 }
