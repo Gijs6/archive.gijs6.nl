@@ -15,8 +15,8 @@
     </image>
     <language>en</language>
     <lastBuildDate>Sat, 08 Nov 2025 19:02:00 +0000</lastBuildDate>
-    <managingEditor>gijs6@dupunkto.org (Gijs ten Berg)</managingEditor>
-    <webMaster>gijs6@dupunkto.org (Gijs ten Berg)</webMaster>
+    <managingEditor>me@gijs6.nl (Gijs ten Berg)</managingEditor>
+    <webMaster>me@gijs6.nl (Gijs ten Berg)</webMaster>
     <item>
       <title>What is art?</title>
       <link>https://www.gijs6.nl/blog/what-is-art</link>
@@ -38,7 +38,7 @@ But that definition raises some questions. If you remove all traces of an artist
 &lt;p&gt;Art forces us to confront the fundamentals of being human. Why do we feel the need to create? Why do some patterns of sound or color move us to tears, while others don't affect us at all? Why do we desperately want to share our inner experiences with others, even though we can never truly know if they understand?&lt;/p&gt;
 &lt;p&gt;These questions don't have answers, and that's exactly what makes them worth asking.&lt;/p&gt;
 &lt;/article&gt;</description>
-      <author>gijs6@dupunkto.org (Gijs ten Berg - Gijs6)</author>
+      <author>me@gijs6.nl (Gijs ten Berg - Gijs6)</author>
       <guid isPermaLink="false">https://www.gijs6.nl/blog/what-is-art</guid>
       <pubDate>Mon, 25 Aug 2025 20:17:10 +0000</pubDate>
     </item>
@@ -84,7 +84,7 @@ And yes, sometimes you'll need to fiddle and fuck around and not know what the h
 &lt;p&gt;So now...&lt;br /&gt;
 &lt;a href="https://archlinux.org/download/"&gt;Download Arch here&lt;/a&gt;&lt;/p&gt;
 &lt;/article&gt;</description>
-      <author>gijs6@dupunkto.org (Gijs ten Berg - Gijs6)</author>
+      <author>me@gijs6.nl (Gijs ten Berg - Gijs6)</author>
       <guid isPermaLink="false">https://www.gijs6.nl/blog/fix-your-damn-sanity</guid>
       <pubDate>Mon, 21 Jul 2025 20:10:43 +0000</pubDate>
     </item>
@@ -100,7 +100,7 @@ And the students aren't the problem; the endless obsession with assignments, tes
 And AI has removed all room to be curious (there wasn't much room before anyway). My school thinks that if you allow people to be curious, you allow them to use AI.&lt;br /&gt;
 The endless amount of boring, tedious, and repeating assignments make people forget that school can be fun. So for almost everyone, learning is not an interesting experience; it's a chore, so it's no wonder they would rather let AI do it.&lt;/p&gt;
 &lt;/article&gt;</description>
-      <author>gijs6@dupunkto.org (Gijs ten Berg - Gijs6)</author>
+      <author>me@gijs6.nl (Gijs ten Berg - Gijs6)</author>
       <guid isPermaLink="false">https://www.gijs6.nl/blog/ai-made-education-worse</guid>
       <pubDate>Tue, 13 May 2025 12:18:36 +0000</pubDate>
     </item>
@@ -116,7 +116,7 @@ The endless amount of boring, tedious, and repeating assignments make people for
 &lt;/article&gt;&lt;section id='refs'&gt;&lt;h2&gt;References&lt;/h2&gt;&lt;ol&gt;&lt;li&gt;&lt;a id='ref-url-1' href='https://www.rtl.nl/nieuws/politiek/artikel/5501188/minister-wil-verkiezingen-drastisch-veranderen-kamerleden-provincie'&gt;&lt;em&gt;Minister wil verkiezingen drastisch veranderen: Tweede Kamerleden per provincie gekozen&lt;/em&gt; - &lt;strong&gt;RTL Nieuws&lt;/strong&gt;
 &lt;/a&gt;&lt;/li&gt;&lt;li&gt;&lt;a id='ref-url-2' href='https://www.rug.nl/fse/news/digital-society/20250401-electoralplansnsc'&gt;&lt;em&gt;NSC's electoral reform plan may have unwanted consequences&lt;/em&gt; - &lt;strong&gt;University of Groningen&lt;/strong&gt;
 &lt;/a&gt;&lt;/li&gt;&lt;/ol&gt;&lt;/section&gt;</description>
-      <author>gijs6@dupunkto.org (Gijs ten Berg - Gijs6)</author>
+      <author>me@gijs6.nl (Gijs ten Berg - Gijs6)</author>
       <guid isPermaLink="false">https://www.gijs6.nl/blog/ruining-an-election-system</guid>
       <pubDate>Tue, 08 Apr 2025 20:03:31 +0000</pubDate>
     </item>
@@ -127,7 +127,7 @@ The endless amount of boring, tedious, and repeating assignments make people for
 &lt;p&gt;This year, I switched my summaries from Google Docs to &lt;a href="https://school.gijs6.nl"&gt;a simple static site&lt;/a&gt; with Markdown files hosted with Jekyll on GitHub pages. I was really fed up with the limited features of Google Docs and just the hassle with sharing the docs, so when I saw that my friend Robin had &lt;a href="https://school.geheimesite.nl"&gt;his own site with his own summaries&lt;/a&gt;, I made the switch. And it works amazing, even though the Jekyll documentation is so bad, and I needed to make some extra Python scripts to get all the functionality that I wanted, but it works; maybe I'll make &lt;a href="https://github.com/Gijs6/Barium"&gt;my own static site generator&lt;/a&gt; sometime ;).&lt;br /&gt;
 I think my little switch to Markdown fits the bigger picture of the decisions that I and many others have made the last few years surrounding the internet and just technology in general. People are kind of done with big tech just being so incredibly powerful, and I am too. We depend on the technology of these companies every single day; never in the history of mankind have so few companies been so powerful.&lt;/p&gt;
 &lt;/article&gt;</description>
-      <author>gijs6@dupunkto.org (Gijs ten Berg - Gijs6)</author>
+      <author>me@gijs6.nl (Gijs ten Berg - Gijs6)</author>
       <guid isPermaLink="false">https://www.gijs6.nl/blog/goodbye-google-docs</guid>
       <pubDate>Tue, 08 Apr 2025 07:47:08 +0000</pubDate>
     </item>
@@ -143,7 +143,7 @@ I think a blog can be all of those, and it definitely shouldn't be a precisely d
 &lt;p&gt;&lt;em&gt;This is probably the worst welcome post in existence&lt;/em&gt;&lt;/p&gt;
 &lt;/article&gt;&lt;section id='refs'&gt;&lt;h2&gt;References&lt;/h2&gt;&lt;ol&gt;&lt;li&gt;&lt;a id='ref-url-1' href='https://doi.org/10.1093/OED/3789439763'&gt;&lt;em&gt;Blog&lt;/em&gt; in the Oxford English dictionary
 &lt;/a&gt;&lt;/li&gt;&lt;/ol&gt;&lt;/section&gt;</description>
-      <author>gijs6@dupunkto.org (Gijs ten Berg - Gijs6)</author>
+      <author>me@gijs6.nl (Gijs ten Berg - Gijs6)</author>
       <guid isPermaLink="false">https://www.gijs6.nl/blog/introduction</guid>
       <pubDate>Sun, 06 Apr 2025 20:26:01 +0000</pubDate>
     </item>
