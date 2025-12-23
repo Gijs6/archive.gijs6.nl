@@ -1,0 +1,5 @@
+body > main > section > article > p:has(time) {
+    color: var(--oc-gray-6);
+    margin-top: -1em;
+    font-size: 0.9em;
+}
